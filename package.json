@@ -3,12 +3,12 @@
   "displayName": "Workspace Tint",
   "description": "Deterministic per-workspace UI tint (titleBar/activityBar/statusBar)",
   "version": "1.0.0",
-  "publisher": "Tinto",
+  "publisher": "tinto",
   "engines": {
     "vscode": "^1.80.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["*"],
+  "activationEvents": ["onStartupFinished"],
   "main": "./dist/extension.js",
   "contributes": {
     "configuration": {
