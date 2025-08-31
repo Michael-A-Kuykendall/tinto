@@ -1,13 +1,25 @@
 {
   "name": "workspace-tint",
   "displayName": "Workspace Tint",
-  "description": "Deterministic per-workspace UI tint (titleBar/activityBar/statusBar)",
+  "description": "🎨 Automatically assign unique, deterministic colors to VS Code workspaces. Never lose track of which project you're working on!",
   "version": "1.0.0",
   "publisher": "tinto",
   "engines": {
     "vscode": "^1.80.0"
   },
-  "categories": ["Other"],
+  "categories": ["Other", "Themes"],
+  "keywords": [
+    "workspace",
+    "color",
+    "tint",
+    "theme",
+    "visual",
+    "organization",
+    "productivity",
+    "ui",
+    "customization",
+    "deterministic"
+  ],
   "activationEvents": ["onStartupFinished"],
   "main": "./dist/extension.js",
   "contributes": {
@@ -60,8 +72,16 @@
     "type": "git",
     "url": "https://github.com/Michael-A-Kuykendall/tinto"
   },
+  "bugs": {
+    "url": "https://github.com/Michael-A-Kuykendall/tinto/issues"
+  },
+  "homepage": "https://github.com/Michael-A-Kuykendall/tinto#readme",
   "author": "Michael A Kuykendall <michaelallenkuykendall@gmail.com>",
   "license": "MIT",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
   "devDependencies": {
     "@types/vscode": "^1.80.0",
   "typescript": "^5.4.0"
