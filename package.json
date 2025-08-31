@@ -1,6 +1,6 @@
 {
   "name": "workspace-tint",
-  "displayName": "Workspace Tint",
+  "displayName": "Tinto",
   "description": "🎨 Automatically assign unique, deterministic colors to VS Code workspaces. Never lose track of which project you're working on!",
   "version": "1.0.0",
   "publisher": "tinto",
@@ -24,7 +24,7 @@
   "main": "./dist/extension.js",
   "contributes": {
     "configuration": {
-      "title": "Workspace Tint",
+      "title": "Tinto",
       "properties": {
         "workspaceTint.enable": {
           "type": "boolean",
@@ -55,11 +55,11 @@
     "commands": [
       {
         "command": "workspaceTint.assign",
-        "title": "Workspace Tint: Assign/Refresh Color"
+        "title": "Tinto: Assign/Refresh Color"
       },
       {
         "command": "workspaceTint.clear",
-        "title": "Workspace Tint: Clear Workspace Colors"
+        "title": "Tinto: Clear Workspace Colors"
       }
     ]
   },
