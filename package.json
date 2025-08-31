@@ -1,0 +1,69 @@
+{
+  "name": "workspace-tint",
+  "displayName": "Workspace Tint",
+  "description": "Deterministic per-workspace UI tint (titleBar/activityBar/statusBar)",
+  "version": "1.0.0",
+  "publisher": "Tinto",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["*"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Workspace Tint",
+      "properties": {
+        "workspaceTint.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable automatic per-workspace tinting."
+        },
+        "workspaceTint.lockColor": {
+          "type": "string",
+          "default": "",
+          "description": "Optional hex color (e.g. #0A84FF) to lock for this workspace; leave empty for auto."
+        },
+        "workspaceTint.saturation": {
+          "type": "number",
+          "default": 0.6,
+          "minimum": 0.2,
+          "maximum": 1,
+          "description": "Saturation (0-1)."
+        },
+        "workspaceTint.lightness": {
+          "type": "number",
+          "default": 0.22,
+          "minimum": 0.1,
+          "maximum": 0.5,
+          "description": "Lightness (0-1) used for titleBar/activityBar; statusBar is slightly darker."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "workspaceTint.assign",
+        "title": "Workspace Tint: Assign/Refresh Color"
+      },
+      {
+        "command": "workspaceTint.clear",
+        "title": "Workspace Tint: Clear Workspace Colors"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Michael-A-Kuykendall/tinto"
+  },
+  "author": "Michael A Kuykendall <michaelallenkuykendall@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+  "typescript": "^5.4.0"
+  }
+}

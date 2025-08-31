@@ -1,0 +1,6 @@
+**/*.map
+**/*.ts
+node_modules/.bin
+.vscode/**
+.git/**
+**/.DS_Store
