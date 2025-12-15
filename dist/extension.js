@@ -71,15 +71,56 @@ function shade(hex, amt) {
     const nr = adj(r), ng = adj(g), nb = adj(b);
     return `#${nr.toString(16).padStart(2, '0')}${ng.toString(16).padStart(2, '0')}${nb.toString(16).padStart(2, '0')}`.toUpperCase();
 }
+function clampPercentage(value, fallback) {
+    const pct = typeof value === 'number' ? value : fallback;
+    return Math.max(0, Math.min(100, pct)) / 100;
+}
+function deriveWorkspaceId() {
+    const folders = vscode.workspace.workspaceFolders;
+    if (folders && folders.length > 0) {
+        return folders.map((f) => f.uri.fsPath).join('|');
+    }
+    if (vscode.workspace.workspaceFile) {
+        return vscode.workspace.workspaceFile.fsPath;
+    }
+    return vscode.workspace.name || 'untitled';
+}
+function normalizeHexColor(value) {
+    if (!value) {
+        return undefined;
+    }
+    const trimmed = value.trim();
+    if (!trimmed.length) {
+        return undefined;
+    }
+    const cleaned = trimmed.replace(/^0x/i, '#');
+    const withHash = cleaned.startsWith('#') ? cleaned : `#${cleaned}`;
+    const hex = withHash.slice(1);
+    if (!/^[0-9A-F]+$/i.test(hex) || (hex.length !== 3 && hex.length !== 6)) {
+        return undefined;
+    }
+    const normalized = hex.length === 3 ? hex.split('').map((c) => c + c).join('') : hex;
+    return `#${normalized.toUpperCase()}`;
+}
 async function assign(context) {
     try {
         const cfgRoot = vscode.workspace.getConfiguration('tinto');
-        // Only the first workspace folder is used for color hashing in multi-root workspaces.
-        const folder = vscode.workspace.workspaceFolders?.[0]?.name || 'untitled';
-        const h = hashString(folder) % 360; // deterministic hue
-        const s = cfgRoot.get('saturation', 30) / 100; // Convert percentage to decimal
-        const l = cfgRoot.get('lightness', 95) / 100; // Convert percentage to decimal
-        const colorHex = hslToHex(h, s, l);
+        if (!cfgRoot.get('enable', true)) {
+            return;
+        }
+        const lockInput = cfgRoot.get('lockColor', '') || '';
+        const lockedColor = normalizeHexColor(lockInput);
+        if (lockInput && !lockedColor) {
+            vscode.window.showWarningMessage(`Tinto: '${lockInput}' is not a valid hex color; using automatic tint instead.`);
+        }
+        let colorHex = lockedColor;
+        if (!colorHex) {
+            const workspaceId = deriveWorkspaceId();
+            const hue = hashString(workspaceId) % 360;
+            const saturation = clampPercentage(cfgRoot.get('saturation'), 30);
+            const lightness = clampPercentage(cfgRoot.get('lightness'), 95);
+            colorHex = hslToHex(hue, saturation, lightness);
+        }
         await applyTint(colorHex);
     }
     catch (err) {

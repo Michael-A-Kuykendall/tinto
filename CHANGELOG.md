@@ -5,6 +5,16 @@ All notable changes to the "Tinto" extension will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-12-15
+
+### Fixed
+- Derive the deterministic tint from the workspace path or workspace file instead of just the folder name so different folders never share the same color.
+- Honor the new `tinto.*` configuration schema (including enable/lock color toggles and percentage saturation/lightness) and warn if a locked color is invalid.
+- Rename the exposed commands and configuration contributions to `tinto.applyTint`/`tinto.removeTint` and `tinto.*` so the extension registration matches the published manifest.
+
+### Technical Notes
+- Added helper utilities for workspace identification, percentage clamping, and color normalization to improve reliability and error messaging.
+
 ## [1.0.0] - 2025-08-31
 
 ### Initial Release

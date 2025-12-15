@@ -42,21 +42,21 @@ That's it! Your workspaces are now visually distinct.
 
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
-| `workspaceTint.enable` | boolean | `true` | Enable/disable automatic workspace tinting |
-| `workspaceTint.lockColor` | string | `""` | Override color for this workspace (e.g., `#0A84FF`) |
-| `workspaceTint.saturation` | number | `0.6` | Color saturation (0.2-1.0) |
-| `workspaceTint.lightness` | number | `0.22` | Color lightness (0.1-0.5) |
+| `tinto.enable` | boolean | `true` | Enable/disable automatic workspace tinting |
+| `tinto.lockColor` | string | `""` | Override color for this workspace (e.g., `#0A84FF`) |
+| `tinto.saturation` | number | `30` | Color saturation percentage (0-100) |
+| `tinto.lightness` | number | `95` | Color lightness percentage (0-100) |
 
 ## 🎮 Commands
 
 Access these commands via the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`):
 
-- **`Tinto: Assign/Refresh Color`** - Manually trigger color assignment
-- **`Tinto: Clear Workspace Colors`** - Remove all workspace color customizations
+- **`Tinto: Apply Workspace Tint`** - Manually trigger color assignment (uses locked tint if configured)
+- **`Tinto: Remove Workspace Tint`** - Remove all workspace color customizations
 
 ## 💡 How It Works
 
-Tinto uses a cryptographic hash function (FNV-1a) to convert your workspace folder name into a consistent hue value. This ensures:
+Tinto uses a cryptographic hash function (FNV-1a) to convert your workspace identity — either the full path(s) of the folders or the workspace file — into a consistent hue value. This ensures:
 
 - **Same folder name = Same color**, always
 - **Different folders = Different colors**, guaranteed

@@ -2,7 +2,7 @@
   "name": "workspace-tint",
   "displayName": "Tinto",
   "description": "🎨 Automatically assign unique, deterministic colors to VS Code workspaces. Never lose track of which project you're working on!",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "tinto",
   "engines": {
     "vscode": "^1.80.0"
@@ -26,40 +26,40 @@
     "configuration": {
       "title": "Tinto",
       "properties": {
-        "workspaceTint.enable": {
+        "tinto.enable": {
           "type": "boolean",
           "default": true,
-          "description": "Enable automatic per-workspace tinting."
+          "description": "Enable automatic workspace tinting."
         },
-        "workspaceTint.lockColor": {
+        "tinto.lockColor": {
           "type": "string",
           "default": "",
-          "description": "Optional hex color (e.g. #0A84FF) to lock for this workspace; leave empty for auto."
+          "description": "Optional hex color (e.g. #0A84FF) to pin a specific tint for this workspace."
         },
-        "workspaceTint.saturation": {
+        "tinto.saturation": {
           "type": "number",
-          "default": 0.6,
-          "minimum": 0.2,
-          "maximum": 1,
-          "description": "Saturation (0-1)."
+          "default": 30,
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Color saturation percentage (0-100)."
         },
-        "workspaceTint.lightness": {
+        "tinto.lightness": {
           "type": "number",
-          "default": 0.22,
-          "minimum": 0.1,
-          "maximum": 0.5,
-          "description": "Lightness (0-1) used for titleBar/activityBar; statusBar is slightly darker."
+          "default": 95,
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Color lightness percentage (0-100)."
         }
       }
     },
     "commands": [
       {
-        "command": "workspaceTint.assign",
-        "title": "Tinto: Assign/Refresh Color"
+        "command": "tinto.applyTint",
+        "title": "Tinto: Apply Workspace Tint"
       },
       {
-        "command": "workspaceTint.clear",
-        "title": "Tinto: Clear Workspace Colors"
+        "command": "tinto.removeTint",
+        "title": "Tinto: Remove Workspace Tint"
       }
     ]
   },
@@ -84,6 +84,6 @@
   },
   "devDependencies": {
     "@types/vscode": "^1.80.0",
-  "typescript": "^5.4.0"
+    "typescript": "^5.4.0"
   }
 }
