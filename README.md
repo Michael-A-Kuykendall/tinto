@@ -44,8 +44,8 @@ That's it! Your workspaces are now visually distinct.
 |---------|------|---------|-------------|
 | `tinto.enable` | boolean | `true` | Enable/disable automatic workspace tinting |
 | `tinto.lockColor` | string | `""` | Override color for this workspace (e.g., `#0A84FF`) |
-| `tinto.saturation` | number | `30` | Color saturation percentage (0-100) |
-| `tinto.lightness` | number | `65` | Color lightness percentage (0-100) |
+| `tinto.saturation` | number | `70` | Color saturation percentage (0-100) |
+| `tinto.lightness` | number | `50` | Color lightness percentage (0-100) |
 
 ## 🎮 Commands
 

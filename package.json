@@ -2,7 +2,7 @@
   "name": "workspace-tint",
   "displayName": "Tinto",
   "description": "🎨 Automatically assign unique, deterministic colors to VS Code workspaces. Never lose track of which project you're working on!",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "publisher": "tinto",
   "engines": {
     "vscode": "^1.80.0"
@@ -38,14 +38,14 @@
         },
         "tinto.saturation": {
           "type": "number",
-          "default": 30,
+          "default": 70,
           "minimum": 0,
           "maximum": 100,
           "description": "Color saturation percentage (0-100)."
         },
         "tinto.lightness": {
           "type": "number",
-          "default": 65,
+          "default": 50,
           "minimum": 0,
           "maximum": 100,
           "description": "Color lightness percentage (0-100)."
