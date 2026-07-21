@@ -8,6 +8,21 @@
 
 Never lose track of which project you're working on! Tinto automatically assigns a unique, consistent color to each workspace's title bar, activity bar, and status bar based on the folder name. Each project gets its own visual identity.
 
+### 💝 Support Tinto
+
+🚀 **If Tinto helps you, consider [sponsoring](https://github.com/sponsors/Michael-A-Kuykendall) — 100% of support goes to keeping it free forever.**
+
+- **$5/month**: Coffee Hero ☕ — Eternal gratitude + name in [SPONSORS.md](SPONSORS.md)
+- **$25/month**: Developer Supporter 🐛 — Priority bug response + roadmap influence
+- **$100/month**: Corporate Backer 🏢 — Logo in README + release-note recognition
+- **$500/month**: Enterprise Partner 🚀 — Prominent logo + monthly office hours + roadmap input
+
+[**🎯 Become a Sponsor**](https://github.com/sponsors/Michael-A-Kuykendall) | See our amazing [sponsors](SPONSORS.md) 🙏
+
+**Thank you to our sponsors:** [ZephyrCloudIO](https://github.com/ZephyrCloudIO) (Corporate Backer) · alistairheath (Coffee Hero)
+
+---
+
 ## ✨ Features
 
 ### 🎨 **Automatic Color Assignment**
